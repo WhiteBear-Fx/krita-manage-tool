@@ -4,4 +4,6 @@
 /.idea/
 /config/
 /setting/
-/__pycache__/
+__pycache__/
+*.pyc
+/.vscode/
