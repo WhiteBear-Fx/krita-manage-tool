@@ -11,8 +11,8 @@ import platform_dependence
 import tkinter.filedialog as filedialog
 import tkinter.messagebox as messagebox
 
-version = None
-developer = None
+version = ""
+developer = ""
 
 # 全局常量：界面元素的内边距
 PAD_X = 10
@@ -1068,7 +1068,7 @@ class SettingWindow(tk.Toplevel):
 
         self.use_default_var = tk.BooleanVar(value=json_manage.settings_manager.get_setting('use_default_path'))
         self.ues_default_button = ttk.Checkbutton(self.frame, textvariable=language_var_dic.get('ues-default-button'),
-                                                  variable=self.use_default_var, command=self.ues_default_button_on)
+                                                  variable=self.use_default_var, command=self.use_default_button_on)
         self.ues_default_button.grid(column=4, row=3, padx=PAD_X, pady=PAD_Y, sticky='w')
 
         self.update_idletasks()
@@ -1154,7 +1154,7 @@ class SettingWindow(tk.Toplevel):
                 json_manage.settings_manager.set_setting('use_default_path', False)
                 self.use_default_var.set(False)
 
-    def ues_default_button_on(self):
+    def use_default_button_on(self):
         if self.use_default_var.get():
             json_manage.settings_manager.set_setting('use_default_path', True)
             json_manage.settings_manager.set_setting('krita_resources_path',
